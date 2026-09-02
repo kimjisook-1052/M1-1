@@ -62,23 +62,21 @@ matplotlib으로 그래프 3개를 그렸습니다 (일별 기온 추이, 월별
 
 ## 폴더 구조
 
-```
 .
 ├── raw_data/
-│   ├── raw_temperature.csv       # 기상청 원본 기온 데이터 (CP949 인코딩)
-│   └── raw_precipitation.csv     # 기상청 원본 강수량 데이터 (CP949 인코딩)
+│ ├── raw_temperature.csv # 기상청 원본 기온 데이터 (CP949 인코딩)
+│ └── raw_precipitation.csv # 기상청 원본 강수량 데이터 (CP949 인코딩)
 ├── data/
-│   └── sejong_weather_clean.csv  # 정제·병합된 최종 데이터
+│ └── sejong_weather_clean.csv # 정제·병합된 최종 데이터
 ├── images/
-│   ├── 01_temp_trend.png         # 일별 기온 추이 + 30일 이동평균
-│   ├── 02_monthly_pattern.png    # 월별 기온·강수량 패턴 (계절성)
-│   └── 03_camping_suitability.png # 월별 캠핑 적합일 비율
-├── analysis.py                   # 분석 코드 (# %% 셀 방식, VS Code용)
-├── analysis.ipynb                # 분석 코드 (Jupyter 노트북 버전, 동일한 내용)
-├── REPORT.md                     # 전체 분석 리포트 (질문·인사이트·결론)
+│ ├── 01_temp_trend.png # 일별 기온 추이 + 30일 이동평균
+│ ├── 02_monthly_pattern.png # 월별 기온·강수량 패턴 (계절성)
+│ └── 03_camping_suitability.png # 월별 캠핑 적합일 비율
+├── analysis.py # 분석 코드 (# %% 셀 방식, VS Code에서 셀 단위 실행)
+├── REPORT.md # 전체 분석 리포트 (질문·인사이트·결론)
 ├── requirements.txt
-└── README.md                     # 이 파일
-```
+└── README.md # 이 파일
+
 
 ## 실행 방법
 
@@ -86,20 +84,15 @@ matplotlib으로 그래프 3개를 그렸습니다 (일별 기온 추이, 월별
 ```bash
 pip install -r requirements.txt jupyter
 ```
+(VS Code에서 `analysis.py`를 셀 단위로 실행하려면 Jupyter 커널이 필요해서, 노트북 파일이 없어도 jupyter 패키지 설치는 그대로 필요합니다.)
 
-### 방법 A — VS Code에서 analysis.py 실행 (추천)
+### VS Code에서 analysis.py 실행
 1. VS Code에 Jupyter 확장 프로그램 설치
 2. `analysis.py` 열기
 3. 각 `# %%` 구간 위의 "셀 실행"을 위에서부터 순서대로 클릭
 4. 오른쪽 Interactive 창에 결과와 그래프가 바로 나타남
 
 Windows에서 그래프 한글이 깨지면, 코드 상단의 폰트 설정 부분을 `plt.rcParams['font.family'] = 'Malgun Gothic'`으로 바꿔주세요.
-
-### 방법 B — Jupyter 노트북으로 실행
-```bash
-jupyter notebook analysis.ipynb
-```
-처음부터 순서대로 셀을 실행하면 데이터 정제 → 시계열 분석 → 시각화 → 데이터 저장까지 그대로 재현됩니다.
 
 ## 데이터 출처
 
